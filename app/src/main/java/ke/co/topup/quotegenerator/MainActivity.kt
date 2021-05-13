@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import ke.co.topup.quotegenerator.databinding.ActivityMainBinding
 import ke.co.topup.quotegenerator.network.RetrofitAdapter
@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
     }
 
      private fun setupViewModel() {
-         mainViewModel = ViewModelProviders.of(this, ViewModelFactory(
+         mainViewModel = ViewModelProvider(this, ViewModelFactory(
              RetrofitAdapter.apiClient
              )
          ).get(MainViewModel::class.java)
@@ -47,19 +47,19 @@ import kotlinx.coroutines.launch
                          Status.SUCCESS -> {
                              lifecycleScope.launch {
 
-                                 binding.textView.text = response.data?.quote
+                                 binding.tvQuote.text = response.data?.quote
 
-                                 binding.textView2.text = response.data?.author
+                                 binding.authorName.text = response.data?.author
 
 
                              }
 
                          }
                          Status.LOADING -> {
-                             Toast.makeText(this, "Loading ... ", Toast.LENGTH_LONG).show()
+                             Toast.makeText(this, "Loading ... ", Toast.LENGTH_SHORT).show()
                          }
                          Status.ERROR -> {
-                             Toast.makeText(this, response.message, Toast.LENGTH_LONG).show()
+                             Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                          }
                      }
                  }

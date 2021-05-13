@@ -70,8 +70,7 @@ dependencies {
 
     // Saved state module for ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-    implementation("io.coil-kt:coil:0.9.1")
-    implementation "io.insert-koin:koin-android:3.0.1-beta-2"
+
     //implementation "com.github.haroldadmin:NetworkResponseAdapter:4.0.1"
     implementation "androidx.palette:palette-ktx:1.0.0"
 }

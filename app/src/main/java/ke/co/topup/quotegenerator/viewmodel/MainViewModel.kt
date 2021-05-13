@@ -18,7 +18,7 @@ class MainViewModel(private val apiService: ApiService) : ViewModel() {
             emit(
                 Resource.error(
                     data = null,
-                    message = exception.message ?: "Unable to fetch random images"
+                    message = exception.message ?: "Unable to fetch random quotes"
                 )
             )
 
