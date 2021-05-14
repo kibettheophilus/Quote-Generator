@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import ke.co.topup.quotegenerator.databinding.ActivityMainBinding
-import ke.co.topup.quotegenerator.network.RetrofitAdapter
+import ke.co.topup.quotegenerator.network.RetrofitBuilder
 import ke.co.topup.quotegenerator.utils.Status
 import ke.co.topup.quotegenerator.viewmodel.MainViewModel
 import ke.co.topup.quotegenerator.viewmodel.ViewModelFactory
@@ -22,19 +22,19 @@ import kotlinx.coroutines.launch
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setOnClickListeners()
+        setupObservers()
         setupViewModel()
     }
 
      private fun setupViewModel() {
          mainViewModel = ViewModelProvider(this, ViewModelFactory(
-             RetrofitAdapter.apiClient
+             RetrofitBuilder.apiClient
              )
          ).get(MainViewModel::class.java)
 
      }
 
-     fun setOnClickListeners(){
+     fun setupObservers(){
 
          binding.button.setOnClickListener {
 

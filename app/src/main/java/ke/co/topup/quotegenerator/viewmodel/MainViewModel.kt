@@ -14,7 +14,6 @@ class MainViewModel(private val apiService: ApiService) : ViewModel() {
             emit(Resource.success(data = apiService.getRandomQuote()))
 
         } catch (exception: Exception) {
-
             emit(
                 Resource.error(
                     data = null,
