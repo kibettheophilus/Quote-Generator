@@ -1,5 +1,5 @@
 # Quote-Generator
-An app that fetches quotes from an api
+An app that fetches random quotes from an api
 
 Developed while learning how to fetch data from an api using Retrofit.
 
