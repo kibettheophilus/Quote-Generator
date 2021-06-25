@@ -2,20 +2,22 @@
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import dagger.hilt.android.AndroidEntryPoint
 import ke.co.topup.quotegenerator.databinding.ActivityMainBinding
-import ke.co.topup.quotegenerator.network.RetrofitBuilder
 import ke.co.topup.quotegenerator.utils.Status
 import ke.co.topup.quotegenerator.viewmodel.MainViewModel
-import ke.co.topup.quotegenerator.viewmodel.ViewModelFactory
 import kotlinx.coroutines.launch
 
+
+ @AndroidEntryPoint
  class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mainViewModel: MainViewModel
+
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,16 +25,13 @@ import kotlinx.coroutines.launch
         setContentView(binding.root)
 
         setupObservers()
-        setupViewModel()
+       // setupViewModel()
     }
 
-     private fun setupViewModel() {
-         mainViewModel = ViewModelProvider(this, ViewModelFactory(
-             RetrofitBuilder.apiClient
-             )
-         ).get(MainViewModel::class.java)
-
-     }
+//     private fun setupViewModel() {
+//         mainViewModel = ViewModelProvider(this, ViewModelFactory).get(MainViewModel::class.java)
+//
+//     }
 
      fun setupObservers(){
 

@@ -1,4 +1,4 @@
-package ke.co.topup.quotegenerator.network
+package ke.co.topup.quotegenerator.model
 
 import com.google.gson.annotations.SerializedName
 
