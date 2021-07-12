@@ -11,8 +11,8 @@ Developed while learning how to fetch data from an api using Retrofit.
 
 ## Screenshots
 
-![screen1](https://user-images.githubusercontent.com/61080898/123415625-3aaf4680-d5be-11eb-8e02-993994eb4701.jpg)
-![screen2](https://user-images.githubusercontent.com/61080898/123415819-74804d00-d5be-11eb-9e3f-c13b69566cfb.jpg)
+![screen1](https://user-images.githubusercontent.com/61080898/125303115-3bbdd300-e335-11eb-8b05-44d5190c3fbc.png)
+![screen2](https://user-images.githubusercontent.com/61080898/125303282-5c862880-e335-11eb-9136-ad1d4ec54b16.png)
 
 
 [![googleplay](https://user-images.githubusercontent.com/61080898/118510842-02545700-b73a-11eb-95f3-6bbb6e1f64cc.png)](https://play.google.com/store/apps/details?id=ke.co.topup.quotegenerator)
