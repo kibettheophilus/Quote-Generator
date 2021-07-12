@@ -12,6 +12,7 @@ Developed while learning how to fetch data from an api using Retrofit.
 ## Screenshots
 
 ![screen1](https://user-images.githubusercontent.com/61080898/125303115-3bbdd300-e335-11eb-8b05-44d5190c3fbc.png)
+
 ![screen2](https://user-images.githubusercontent.com/61080898/125303282-5c862880-e335-11eb-9136-ad1d4ec54b16.png)
 
 
