@@ -1,6 +1,8 @@
  package ke.co.topup.quotegenerator
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +13,6 @@ import ke.co.topup.quotegenerator.databinding.ActivityMainBinding
 import ke.co.topup.quotegenerator.utils.Status
 import ke.co.topup.quotegenerator.viewmodel.MainViewModel
 import kotlinx.coroutines.launch
-
 
  @AndroidEntryPoint
  class MainActivity : AppCompatActivity() {
@@ -25,15 +26,19 @@ import kotlinx.coroutines.launch
         setContentView(binding.root)
 
         setupObservers()
-       // setupViewModel()
+
+        binding.toolbar.setOnClickListener {
+            Toast.makeText(this,"Good things on the way",Toast.LENGTH_LONG).show()
+        }
+
+        binding.share.setOnClickListener {
+            shareQuote()
+        }
     }
 
-//     private fun setupViewModel() {
-//         mainViewModel = ViewModelProvider(this, ViewModelFactory).get(MainViewModel::class.java)
-//
-//     }
 
      fun setupObservers(){
+         val progressbar = binding.progressBar
 
          binding.button.setOnClickListener {
 
@@ -44,20 +49,19 @@ import kotlinx.coroutines.launch
 
                      when (resource.status) {
                          Status.SUCCESS -> {
+                             progressbar.visibility = View.GONE
                              lifecycleScope.launch {
-
                                  binding.tvQuote.text = response.data?.quote
-
                                  binding.authorName.text = response.data?.author
-
-
                              }
 
                          }
                          Status.LOADING -> {
-                             Toast.makeText(this, "Loading ... ", Toast.LENGTH_SHORT).show()
+                             progressbar.visibility = View.VISIBLE
+                            // Toast.makeText(this, "Loading ... ", Toast.LENGTH_SHORT).show()
                          }
                          Status.ERROR -> {
+                             progressbar.visibility = View.GONE
                              Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                          }
                      }
@@ -65,5 +69,15 @@ import kotlinx.coroutines.launch
              })
          }
      }
+
+
+     private fun shareQuote() {
+         val quote = binding.tvQuote.text.toString()
+         val intent = Intent(Intent.ACTION_SEND)
+         intent.type = "text/plain"
+         intent.putExtra(Intent.EXTRA_TEXT, "$quote  Download Quote Generator https://play.google.com/store/apps/details?id=ke.co.topup.quotegenerator")
+         startActivity(Intent.createChooser(intent, "Share Via:"))
+     }
+
 
  }

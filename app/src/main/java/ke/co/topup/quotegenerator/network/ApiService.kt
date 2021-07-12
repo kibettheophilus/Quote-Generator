@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface ApiService {
     //exact endpoint of your api
-    @GET("random")
+    @GET(".json")
     suspend fun getRandomQuote() : Quotes
 }
