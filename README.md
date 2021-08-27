@@ -8,6 +8,7 @@ Developed while learning how to fetch data from an api using Retrofit.
 - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) -  an observable data holder class.<br/><br/>
 - [Viewmodel](https://developer.android.com/reference/android/arch/lifecycle/ViewModel) - to hold and manage UI-related data in a life-cycle conscious way.<br/><br/>
 - [Coroutines](https://developer.android.com/kotlin/coroutines) - to simplify code that executes asynchronously.<br/><br/>
+- [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - a fully static, compile-time dependency injection framework for both Java and Android. <br/><br/>
 
 ## Screenshots
 
